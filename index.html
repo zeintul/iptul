@@ -5,156 +5,241 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Tugas Basis Data - Lutfi Zeindhikra Saepulah</title>
   <style>
-  /* ===== Tampilan Umum ===== */
-  body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f9fbff, #e8f0ff);
-    color: #1e293b;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f9fbff, #e8f0ff);
+      color: #1e293b;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  header {
-    text-align: center;
-    background: linear-gradient(120deg, #93c5fd, #3b82f6);
-    color: white;
-    padding: 50px 20px;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 2.3rem;
-    font-weight: 600;
-  }
-
-  header p {
-    margin-top: 8px;
-    font-size: 1rem;
-    opacity: 0.9;
-  }
-
-  .identitas {
-    margin-top: 18px;
-    background: rgba(255, 255, 255, 0.15);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
-  }
-
-  main {
-    flex: 1;
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-
-  /* ====== Kartu Tugas ====== */
-  .card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 28px;
-    margin: 25px 0;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    border: 1px solid #f1f5f9;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
-  }
-
-  .card h2 {
-    margin-top: 0;
-    color: #1d4ed8;
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
-
-  .card p {
-    color: #475569;
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  .card a {
-    display: inline-block;
-    background: linear-gradient(90deg, #3b82f6, #2563eb);
-    color: white;
-    padding: 10px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
-  }
-
-  .card a:hover {
-    background: linear-gradient(90deg, #2563eb, #1d4ed8);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
-  }
-
-  footer {
-    text-align: center;
-    background-color: #1e3a8a;
-    color: white;
-    padding: 20px;
-    font-size: 0.9rem;
-    letter-spacing: 0.3px;
-    margin-top: auto;
-  }
-
-  /* ===== Responsif ===== */
-  @media (max-width: 600px) {
     header {
-      padding: 35px 15px;
-      border-radius: 0 0 30px 30px;
+      background: linear-gradient(120deg, #93c5fd, #3b82f6);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
     }
 
     header h1 {
-      font-size: 1.7rem;
+      margin: 0;
+      font-size: 2.3rem;
+      font-weight: 600;
     }
 
+    header p {
+      margin-top: 8px;
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    .identitas {
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      font-size: 0.95rem;
+    }
+
+    /* ===== Menu Burger ===== */
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 1001;
+      transition: 0.3s;
+    }
+
+    .menu-btn div {
+      width: 28px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .menu-btn.active div:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    .menu-btn.active div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active div:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* ===== Menu Slide ===== */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 250px;
+      height: 100%;
+      background: #1e3a8a;
+      color: white;
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      transition: right 0.4s ease, opacity 0.3s ease;
+      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      z-index: 1000;
+    }
+
+    .side-menu.active {
+      right: 0;
+      opacity: 1;
+    }
+
+    .side-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+
+    .side-menu a:hover {
+      color: #93c5fd;
+      transform: scale(1.05);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    /* ===== CARD TUGAS BARU ===== */
     .card {
-      padding: 22px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      border-top: 5px solid #3b82f6;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
     }
 
     .card h2 {
-      font-size: 1.2rem;
+      color: #1d4ed8;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
-  }
-</style>
 
+    .card p {
+      color: #475569;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .card a {
+      display: inline-block;
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.25);
+    }
+
+    .card a:hover {
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 35px 15px;
+      }
+      header h1 {
+        font-size: 1.7rem;
+      }
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
+    <div class="menu-btn" id="menuBtn">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
     <h1>Blog Tugas Mata Kuliah Basis Data</h1>
     <p>Kumpulan tugas kuliah oleh Lutfi Zeindhikra Saepulah</p>
     <div class="identitas">
-      <strong>NIM:</strong> 24416255201109 |
-      <strong>Kelas:</strong> IF24 C
+      <strong>NIM:</strong> 24416255201109 | <strong>Kelas:</strong> IF24 C
     </div>
   </header>
+
+  <div class="side-menu" id="sideMenu">
+    <a href="home.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Kontak</a>
+  </div>
 
   <main>
     <div class="card">
       <h2>Tugas 1</h2>
-      <p>BEFOREEEEEE WEEEEE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.</p>
+      <p>Membahas dasar-dasar penggunaan MySQL dan query dasar untuk membuat serta mengelola tabel.</p>
       <a href="tugas1.html">Lihat Tugas</a>
     </div>
 
     <div class="card">
       <h2>Tugas 2</h2>
-      <p>BEFOREEEEEE WEEEEE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.</p>
+      <p>Penerapan relasi antar tabel dan implementasi perintah JOIN untuk penggabungan data kompleks.</p>
       <a href="tugas2.html">Lihat Tugas</a>
     </div>
   </main>
@@ -162,5 +247,25 @@
   <footer>
     © 2025 | Lutfi Zeindhikra Saepulah — IF24 C
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+
+    // Toggle buka/tutup menu
+    menuBtn.addEventListener('click', () => {
+      const active = sideMenu.classList.toggle('active');
+      menuBtn.classList.toggle('active', active);
+    });
+
+    // Tutup menu saat link diklik
+    const menuLinks = sideMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
