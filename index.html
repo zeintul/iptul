@@ -3,60 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Tugas Basis Data - Lutfi Zeindhikra Saepulah</title>
+  <title>Blog Mata Kuliah - Lutfi Zeindhikra Saepulah</title>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f9fbff, #e8f0ff);
-      color: #1e293b;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0b0d17, #1f2937);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: #fff;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       overflow-x: hidden;
     }
 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== HEADER ===== */
     header {
-      background: linear-gradient(120deg, #93c5fd, #3b82f6);
-      color: white;
-      padding: 50px 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00ffcc;
+      padding: 60px 20px;
       text-align: center;
+      border-bottom: 1px solid rgba(0, 255, 204, 0.3);
       position: relative;
-      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
+      box-shadow: 0 6px 25px rgba(0, 255, 204, 0.15);
+      backdrop-filter: blur(10px);
+      transition: 0.4s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.3rem;
-      font-weight: 600;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin-top: 8px;
-      opacity: 0.9;
+      margin-top: 10px;
       font-size: 1rem;
+      color: #cfcfcf;
     }
 
     .identitas {
-      margin-top: 15px;
-      background: rgba(255, 255, 255, 0.2);
+      margin-top: 18px;
+      background: rgba(0, 255, 204, 0.08);
+      padding: 10px 25px;
+      border-radius: 20px;
       display: inline-block;
-      padding: 10px 20px;
-      border-radius: 12px;
-      backdrop-filter: blur(6px);
-      font-size: 0.95rem;
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      color: #00ffcc;
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
     }
 
-    /* ===== Menu Burger ===== */
+    /* ===== BURGER MENU ===== */
     .menu-btn {
       position: absolute;
-      top: 20px;
-      right: 25px;
-      cursor: pointer;
+      top: 25px;
+      right: 30px;
       display: flex;
       flex-direction: column;
       gap: 5px;
+      cursor: pointer;
       z-index: 1001;
       transition: 0.3s;
     }
@@ -64,7 +85,7 @@
     .menu-btn div {
       width: 28px;
       height: 3px;
-      background: white;
+      background: #00ffcc;
       border-radius: 2px;
       transition: 0.3s;
     }
@@ -81,22 +102,22 @@
       transform: rotate(-45deg) translateY(-8px);
     }
 
-    /* ===== Menu Slide ===== */
+    /* ===== SIDE MENU ===== */
     .side-menu {
       position: fixed;
       top: 0;
-      right: -260px;
+      right: -270px;
       width: 250px;
       height: 100%;
-      background: #1e3a8a;
-      color: white;
-      padding-top: 100px;
+      background: rgba(15, 20, 30, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: -6px 0 20px rgba(0, 255, 204, 0.15);
+      transition: right 0.4s ease, opacity 0.4s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 100px;
       gap: 25px;
-      transition: right 0.4s ease, opacity 0.3s ease;
-      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
       opacity: 0;
       z-index: 1000;
     }
@@ -107,42 +128,47 @@
     }
 
     .side-menu a {
-      color: white;
       text-decoration: none;
-      font-size: 1.2rem;
-      transition: 0.2s;
+      color: #00ffcc;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.25s ease;
     }
 
     .side-menu a:hover {
-      color: #93c5fd;
+      color: #fff;
+      text-shadow: 0 0 8px #00ffcc;
       transform: scale(1.05);
     }
 
+    /* ===== MAIN ===== */
     main {
-      max-width: 900px;
+      flex: 1;
+      max-width: 1000px;
       margin: 60px auto;
-      padding: 0 20px;
+      padding: 0 25px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
+      gap: 35px;
     }
 
-    /* ===== CARD TUGAS BARU ===== */
+    /* ===== CARD ===== */
     .card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       padding: 30px;
-      border-top: 5px solid #3b82f6;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0, 255, 204, 0.05);
+      transition: all 0.35s ease;
+      animation: fadeUp 0.8s forwards;
       opacity: 0;
       transform: translateY(30px);
-      animation: fadeUp 0.8s forwards;
+      cursor: pointer;
     }
 
-    .card:nth-child(2) {
-      animation-delay: 0.2s;
-    }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.3s; }
 
     @keyframes fadeUp {
       to {
@@ -152,60 +178,67 @@
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
+      border-color: #00ffcc;
+      background: rgba(0, 255, 204, 0.08);
     }
 
     .card h2 {
-      color: #1d4ed8;
       font-size: 1.5rem;
+      color: #00ffcc;
       margin-bottom: 10px;
-      font-weight: 600;
     }
 
     .card p {
-      color: #475569;
+      color: #cfcfcf;
+      line-height: 1.6;
       font-size: 1rem;
       margin-bottom: 25px;
     }
 
     .card a {
       display: inline-block;
-      background: linear-gradient(90deg, #3b82f6, #2563eb);
-      color: white;
-      padding: 10px 24px;
+      padding: 10px 22px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 500;
+      background: linear-gradient(90deg, #00ffcc, #009e8e);
+      color: #0b0d17;
+      box-shadow: 0 3px 15px rgba(0, 255, 204, 0.3);
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.25);
     }
 
     .card a:hover {
-      background: linear-gradient(90deg, #2563eb, #1d4ed8);
-      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+      background: linear-gradient(90deg, #00ffd5, #00b8a2);
+      transform: scale(1.05);
+      box-shadow: 0 5px 25px rgba(0, 255, 204, 0.4);
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      background-color: #1e3a8a;
-      color: white;
+      background: rgba(0, 0, 0, 0.85);
+      color: #888;
       padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       font-size: 0.9rem;
       letter-spacing: 0.3px;
-      margin-top: 50px;
     }
 
     @media (max-width: 600px) {
       header {
-        padding: 35px 15px;
+        padding: 40px 15px;
       }
       header h1 {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
       }
-      main {
-        grid-template-columns: 1fr;
+      .menu-btn {
+        right: 20px;
+        top: 20px;
       }
+      .card h2 { font-size: 1.2rem; }
+      .card p { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -216,9 +249,8 @@
       <div></div>
       <div></div>
     </div>
-
-    <h1>Blog Tugas Mata Kuliah Basis Data</h1>
-    <p>Kumpulan tugas kuliah oleh Lutfi Zeindhikra Saepulah</p>
+    <h1>Blog Mata Kuliah</h1>
+    <p>Kumpulan Tugas Kuliah oleh Lutfi Zeindhikra Saepulah</p>
     <div class="identitas">
       <strong>NIM:</strong> 24416255201109 | <strong>Kelas:</strong> IF24 C
     </div>
@@ -226,21 +258,15 @@
 
   <div class="side-menu" id="sideMenu">
     <a href="home.html">Home</a>
-    <a href="gallery.html">galeri</a>
+    <a href="gallery.html">Gallery</a>
     <a href="contact.html">Kontak</a>
   </div>
 
   <main>
     <div class="card">
-      <h2>Tugas 1</h2>
-      <p>Membahas dasar-dasar penggunaan MySQL dan query dasar untuk membuat serta mengelola tabel.</p>
-      <a href="tugas1.html">Lihat Tugas</a>
-    </div>
-
-    <div class="card">
-      <h2>Tugas 2</h2>
-      <p>Penerapan relasi antar tabel dan implementasi perintah JOIN untuk penggabungan data kompleks.</p>
-      <a href="tugas2.html">Lihat Tugas</a>
+      <h2>Basis Data</h2>
+      <p>Belajar konsep database, mulai dari Entity Relationship Diagram (ERD), normalisasi, sampai implementasi CRUD pakai SQL. Cocok buat lo yang mau ngerti cara kerja data di belakang web & aplikasi.</p>
+      <a href="basisdata.html">Lihat Detail</a>
     </div>
   </main>
 
@@ -252,13 +278,20 @@
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
 
-    // Toggle buka/tutup menu
     menuBtn.addEventListener('click', () => {
       const active = sideMenu.classList.toggle('active');
       menuBtn.classList.toggle('active', active);
     });
 
-    // Tutup menu saat link diklik
+    // Biar bisa ditutup dengan klik di luar menu
+    document.addEventListener('click', (e) => {
+      if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        sideMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+
+    // Tutup menu saat klik link di dalamnya
     const menuLinks = sideMenu.querySelectorAll('a');
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
