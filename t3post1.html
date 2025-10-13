@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Post 1 - Kunci pada ERD</title>
+</head>
+<body>
+    <header>
+        <h1>Blog Mata Kuliah Basis Data</h1>
+        <p><strong>Before We Go - Post 1</strong></p>
+        <p><strong>Oleh: Lutfi Zeindhikra Saepulah</strong></p>
+    </header>
+
+    <main>
+        <h2>Apa itu Primary Key, Foreign Key, dan Candidate Key</h2>
+        <p>
+            Dalam perancangan basis data, setiap tabel biasanya punya kunci (key) yang berfungsi untuk mengidentifikasi data dengan unik
+            dan menghubungkan antar tabel. Ada tiga jenis kunci utama yang sering digunakan:
+        </p>
+
+        <h3>1. Primary Key</h3>
+        <p>
+            Primary Key adalah atribut unik yang digunakan untuk mengidentifikasi setiap baris (record) di tabel. Nilainya tidak boleh sama dan tidak boleh kosong (NULL).
+        </p>
+        <p><strong>Contoh pada ERD:</strong></p>
+        <ul>
+            <li>Tabel Mahasiswa → <code>nim</code></li>
+            <li>Tabel Dosen → <code>id_dosen</code></li>
+            <li>Tabel MataKuliah → <code>kode_mk</code></li>
+            <li>Tabel Transaksi → <code>id_transaksi</code></li>
+            <li>Tabel Barang → <code>kode_barang</code></li>
+        </ul>
+
+        <h3>2. Foreign Key</h3>
+        <p>
+            Foreign Key adalah atribut yang digunakan untuk menghubungkan satu tabel dengan tabel lainnya. Nilai dari Foreign Key harus ada pada Primary Key di tabel lain.
+        </p>
+        <p><strong>Contoh pada ERD:</strong></p>
+        <ul>
+            <li>Tabel Transaksi → <code>nim</code> (mengacu ke tabel Mahasiswa)</li>
+            <li>Tabel Nilai → <code>nim</code> (mengacu ke tabel Mahasiswa)</li>
+            <li>Tabel Nilai → <code>kode_mk</code> (mengacu ke tabel MataKuliah)</li>
+            <li>Tabel BarangMasuk → <code>kode_barang</code> (mengacu ke tabel Barang)</li>
+            <li>Tabel Gaji → <code>id_dosen</code> (mengacu ke tabel Dosen)</li>
+        </ul>
+
+        <h3>3. Candidate Key</h3>
+        <p>
+            Candidate Key adalah atribut yang bisa dijadikan sebagai Primary Key karena nilainya unik. Dari beberapa Candidate Key yang ada, hanya satu yang akan dipilih sebagai Primary Key.
+        </p>
+        <p><strong>Contoh pada ERD:</strong></p>
+        <ul>
+            <li>Tabel Mahasiswa → <code>nim</code> dan <code>email</code></li>
+            <li>Tabel Dosen → <code>id_dosen</code> dan <code>nip</code></li>
+            <li>Tabel Barang → <code>kode_barang</code> dan <code>nama_barang</code></li>
+            <li>Tabel Pegawai → <code>id_pegawai</code> dan <code>no_ktp</code></li>
+            <li>Tabel Pelanggan → <code>id_pelanggan</code> dan <code>no_hp</code></li>
+        </ul>
+
+        <p><a href="tugas3.html">⬅ Kembali ke Daftar Postingan</a></p>
+    </main>
+
+    <footer>
+        <p>© 2025 | Blog Basis Data | Lutfi Zeindhikra Saepulah</p>
+    </footer>
+</body>
+</html>
