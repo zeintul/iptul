@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tata Cara Instalasi MySQL</title>
+  <style>
+    :root {
+      --bg:#0f172a;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#60a5fa;
+    }
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, "Noto Sans", sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #071024 0%, #071b2a 100%);
+      color: #e6eef8;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 28px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+    p.lead {
+      color: var(--muted);
+      text-align: center;
+    }
+    .video {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 860px;
+      height: 480px;
+      border-radius: 8px;
+      border: 0;
+    }
+    ol {
+      background: rgba(255,255,255,0.03);
+      padding: 16px 20px;
+      border-radius: 10px;
+    }
+    li { margin: 10px 0; }
+    pre {
+      background: #041426;
+      color: #bfe0ff;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .note {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 15px;
+      background: rgba(255,255,255,0.03);
+      padding: 12px;
+      border-radius: 8px;
+    }
+    video {
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+      max-width: 100%;
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Tata Cara Instalasi MySQL</h1>
+    <p class="lead">Saya pakai link ke YouTube karena GitHub tidak menerima file lebih dari 25 MB</p>
+
+    <!-- Video dari YouTube -->
+    <div class="video">
+      <iframe 
+        src="https://www.youtube.com/embed/jvG0q0MyIvc"
+        title="Tata Cara Instalasi MySQL"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h2>Langkah-langkah Singkat Instalasi MySQL</h2>
+    <ol>
+      <li><strong>Download installer MySQL</strong> dari situs resmi: pilih MySQL Community Server sesuai OS kamu (Windows, Mac, Linux).</li>
+      <li><strong>Jalankan installer</strong> — pilih opsi “Developer Default” atau “Server only” sesuai kebutuhan.</li>
+      <li><strong>Atur konfigurasi</strong> — buat password untuk user <code>root</code>, dan biarkan port default 3306.</li>
+      <li><strong>Selesai instalasi</strong> — buka MySQL Workbench atau gunakan CLI: <code>mysql -u root -p</code></li>
+      <li><strong>Verifikasi</strong> — coba buat database baru:
+        <pre>CREATE DATABASE coba_db;
+SHOW DATABASES;</pre>
+      </li>
+    </ol>
+
+    <div class="note">
+      Video di bawah ini hasil kompresnya semoga ga burik
+    </div>
+
+    <!-- Video lokal (kalau ukuran < 25MB dan ada di folder project) -->
+    <video width="640" height="360" controls>
+      <source src="TUTORMYSQL.mp4" type="video/mp4">
+      Browser kamu tidak mendukung video tag.
+    </video>
+
+    <footer>hak cipta dilindungi tuhan</footer>
+  </main>
+</body>
+</html>

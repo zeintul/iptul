@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Apa itu Entitas, Atribut, dan Relasi dalam ERD</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Noto Sans",sans-serif;background:#f6f8fb;color:#0b1320;margin:0;padding:24px}
+    .card{max-width:900px;margin:28px auto;padding:22px;background:#ffffff;border-radius:12px;box-shadow:0 10px 30px rgba(12,24,40,0.06)}
+    h1{margin:0 0 8px;font-size:1.6rem}
+    p.lead{color:#4b5563;margin-top:0}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .box{padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #eef2f7}
+    code{background:#eef2ff;padding:2px 6px;border-radius:6px}
+    .diagram{display:flex;justify-content:center;padding:10px}
+    svg{max-width:100%;height:auto}
+    ul{margin:8px 0 0 18px;color:#374151}
+    .kbd{display:inline-block;padding:6px 8px;background:#0b1220;color:#fff;border-radius:6px;font-weight:600;font-size:0.85rem}
+    footer{margin-top:14px;color:#6b7280;font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Apa itu Entitas, Atribut, dan Relasi dalam ERD?</h1>
+    <p class="lead">Penjelasan singkat & contoh supaya lo paham langsung, no cap.</p>
+
+    <div class="grid">
+      <section class="box">
+        <h2>1. Entitas (Entity)</h2>
+        <p>Entitas adalah objek nyata atau konsep yang datanya mau disimpan dalam sistem.</p>
+        <ul>
+          <li>Contoh: <strong>Mahasiswa</strong>, <strong>Dosen</strong>, <strong>MataKuliah</strong>, <strong>Ruang</strong>.</li>
+          <li>Biasanya direpresentasikan sebagai kotak di ERD.</li>
+        </ul>
+      </section>
+
+      <section class="box">
+        <h2>2. Atribut (Attribute)</h2>
+        <p>Atribut adalah informasi/detail tentang entitas.</p>
+        <ul>
+          <li>Contoh atribut <strong>Mahasiswa</strong>: <code>NIM</code>, <code>Nama</code>, <code>TTL</code>, <code>Alamat</code>.</li>
+          <li>Primary key (kunci utama) adalah atribut unik, misal <code>NIM</code>.</li>
+        </ul>
+      </section>
+
+      <section class="box">
+        <h2>3. Relasi (Relationship)</h2>
+        <p>Relasi menggambarkan bagaimana entitas saling terkait.</p>
+        <ul>
+          <li>Contoh: <strong>Mahasiswa</strong> <em>mengambil</em> <strong>MataKuliah</strong>.</li>
+          <li>Kardinalitas umum: <code>1:1</code>, <code>1:N</code>, <code>M:N</code>. Untuk M:N biasanya butuh tabel penghubung (join table).</li>
+        </ul>
+      </section>
+
+      <section class="box">
+        <h2>Contoh ERD sederhana</h2>
+        <div class="diagram" aria-hidden="true">
+          <!-- Simple SVG diagram: Entitas Mahasiswa, MataKuliah, relasi ambil -->
+          <svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contoh ERD">
+            <!-- Mahasiswa -->
+            <rect x="40" y="30" width="220" height="120" rx="10" fill="#ffffff" stroke="#213547" stroke-width="2"/>
+            <text x="150" y="60" text-anchor="middle" font-size="16" fill="#0b1320" font-weight="700">Mahasiswa</text>
+            <text x="70" y="95" font-size="13" fill="#0b1320">• NIM (PK)</text>
+            <text x="70" y="115" font-size="13" fill="#0b1320">• Nama</text>
+            <text x="70" y="135" font-size="13" fill="#0b1320">• Alamat</text>
+
+            <!-- MataKuliah -->
+            <rect x="640" y="30" width="220" height="120" rx="10" fill="#ffffff" stroke="#213547" stroke-width="2"/>
+            <text x="750" y="60" text-anchor="middle" font-size="16" fill="#0b1320" font-weight="700">MataKuliah</text>
+            <text x="670" y="95" font-size="13" fill="#0b1320">• KodeMK (PK)</text>
+            <text x="670" y="115" font-size="13" fill="#0b1320">• NamaMK</text>
+            <text x="670" y="135" font-size="13" fill="#0b1320">• SKS</text>
+
+            <!-- Relationship diamond -->
+            <polygon points="380,85 480,40 580,85 480,130" fill="#ecf8ff" stroke="#1e3a5f" stroke-width="2"/>
+            <text x="480" y="88" text-anchor="middle" font-size="14" fill="#0b1320" font-weight="700">mengambil</text>
+
+            <!-- Lines -->
+            <line x1="260" y1="90" x2="380" y2="90" stroke="#1e3a5f" stroke-width="2"/>
+            <line x1="580" y1="90" x2="640" y2="90" stroke="#1e3a5f" stroke-width="2"/>
+
+            <!-- Cardinalities -->
+            <text x="320" y="78" font-size="13" fill="#0b1320">1</text>
+            <text x="620" y="78" font-size="13" fill="#0b1320">N</text>
+          </svg>
+        </div>
+
+        <p class="small">Di contoh ini: <strong>Satu Mahasiswa bisa mengambil banyak MataKuliah</strong> → kardinalitas 1:N.</p>
+      </section>
+
+      <section class="box">
+        <h2>Catatan praktis</h2>
+        <ul>
+          <li>Kalau relasi <code>M:N</code>, buat tabel penghubung, contoh <code>Ambil(Mahasiswa.NIM, MataKuliah.KodeMK, Semester)</code>.</li>
+          <li>Atribut bisa sederhana (scalar) atau komposit; bisa juga bernilai lebih dari satu (multivalue) — hindari multivalue dalam desain normalisasi awal.</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      hak cipta dilindungi tuhan
+    </footer>
+  </main>
+</body>
+</html>
