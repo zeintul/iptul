@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Post 2 - Relasi pada ERD</title>
+</head>
+<body>
+    <header>
+        <h1>Blog Mata Kuliah Basis Data</h1>
+        <p><strong>Before We Go - Post 2</strong></p>
+        <p><strong>Oleh: Lutfi Zeindhikra Saepulah</strong></p>
+    </header>
+
+    <main>
+        <h2>Relasi Antar Entitas dalam ERD</h2>
+        <p>
+            Dalam Entity Relationship Diagram (ERD), relasi digunakan untuk menunjukkan hubungan antar entitas di dalam sistem basis data.
+            Relasi ini menggambarkan bagaimana data di satu tabel terhubung dengan data di tabel lain.
+        </p>
+
+        <h3>1. One to One (1:1)</h3>
+        <p>
+            Hubungan satu ke satu berarti satu entitas hanya berhubungan dengan satu entitas lain.
+        </p>
+        <p><strong>Contoh:</strong> Setiap <em>mahasiswa</em> memiliki satu <em>kartu mahasiswa</em>.</p>
+        <ul>
+            <li>Tabel Mahasiswa ↔ Tabel KartuMahasiswa</li>
+            <li>Relasi: 1 Mahasiswa = 1 Kartu</li>
+        </ul>
+
+        <h3>2. One to Many (1:N)</h3>
+        <p>
+            Hubungan satu ke banyak berarti satu entitas dapat berhubungan dengan banyak entitas lain.
+        </p>
+        <p><strong>Contoh:</strong> Satu <em>dosen</em> dapat mengajar banyak <em>mata kuliah</em>.</p>
+        <ul>
+            <li>Tabel Dosen ↔ Tabel MataKuliah</li>
+            <li>Relasi: 1 Dosen = Banyak Mata Kuliah</li>
+        </ul>
+
+        <h3>3. Many to Many (M:N)</h3>
+        <p>
+            Hubungan banyak ke banyak berarti satu entitas bisa berhubungan dengan banyak entitas lain, dan sebaliknya.
+            Biasanya, hubungan ini membutuhkan tabel tambahan (tabel relasi) untuk menghubungkan keduanya.
+        </p>
+        <p><strong>Contoh:</strong> Banyak <em>mahasiswa</em> bisa mengambil banyak <em>mata kuliah</em>.</p>
+        <ul>
+            <li>Tabel Mahasiswa ↔ Tabel MataKuliah</li>
+            <li>Tabel Relasi: <code>KRS</code> (berisi nim dan kode_mk)</li>
+        </ul>
+
+        <h3>Kesimpulan</h3>
+        <p>
+            Relasi pada ERD membantu kita memahami bagaimana data saling terhubung.
+            Dengan memahami jenis-jenis relasi, kita dapat merancang struktur basis data yang efisien dan logis.
+        </p>
+
+        <p><a href="tugas3.html">⬅ Kembali ke Daftar Postingan</a></p>
+    </main>
+
+    <footer>
+        <p>© 2025 | Blog Basis Data | Lutfi Zeindhikra Saepulah</p>
+    </footer>
+</body>
+</html>

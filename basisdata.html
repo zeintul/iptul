@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Tugas Basis Data - Lutfi Zeindhikra Saepulah</title>
+  <style>
+  /* ===== Tampilan Umum ===== */
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9fbff, #e8f0ff);
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ===== Navbar ===== */
+  .navbar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+  }
+
+  .menu-toggle {
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    width: 180px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #1e293b;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    background: #f1f5f9;
+  }
+
+  header {
+    text-align: center;
+    background: linear-gradient(120deg, #93c5fd, #3b82f6);
+    color: white;
+    padding: 70px 20px 50px;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    position: relative;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: 600;
+  }
+
+  header p {
+    margin-top: 8px;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .identitas {
+    margin-top: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+  }
+
+  main {
+    flex: 1;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  /* ====== Kartu Tugas ====== */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px;
+    margin: 25px 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+  }
+
+  .card h2 {
+    margin-top: 0;
+    color: #1d4ed8;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .card p {
+    color: #475569;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .card a {
+    display: inline-block;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+  }
+
+  .card a:hover {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    transform: scale(1.05);
+  }
+
+  footer {
+    text-align: center;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    margin-top: auto;
+  }
+
+  footer:hover {
+    background-color: #1e40af;
+    transition: 0.4s ease;
+  }
+
+  /* ===== Responsif ===== */
+  @media (max-width: 600px) {
+    header {
+      padding: 35px 15px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+    }
+
+    .card {
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+
+    <h1>Blog Tugas Mata Kuliah Basis Data</h1>
+    <p>Kumpulan tugas kuliah oleh Lutfi Zeindhikra Saepulah</p>
+    <div class="identitas">
+      <strong>NIM:</strong> 24416255201109 |
+      <strong>Kelas:</strong> IF24 C
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Tugas 1</h2>
+      <p>BEFOREEEEEE WEEEEE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.</p>
+      <a href="tugas1.html">Lihat Tugas</a>
+    </div>
+
+    <div class="card">
+      <h2>Tugas 2</h2>
+      <p>BEFOREEEEEE WEEEEE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.</p>
+      <a href="tugas2.html">Lihat Tugas</a>
+    </div>
+
+    <div class="card">
+      <h2>Tugas 3</h2>
+      <p>BEFOREEEEEE WEEEEE GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.</p>
+      <a href="tugas3.html">Lihat Tugas</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 | Lutfi Zeindhikra Saepulah — IF24 C
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
